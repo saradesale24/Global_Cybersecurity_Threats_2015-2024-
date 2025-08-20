@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Global Cybersecurity Threats (2015–2024)</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2, h3 { color: #333; }
+        pre, code { background: #f5f5f5; padding: 8px; border-radius: 4px; }
+        .markdown { margin-bottom: 20px; }
+        .codecell { background: #f8f8ff; border-left: 4px solid #cce; margin: 10px 0; padding: 10px; }
+        table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+        th, td { border: 1px solid #ccc; padding: 6px; text-align: left; }
+        th { background: #efefef; }
+    </style>
+</head>
+<body>
+    <div class="markdown">
+        <h1>Project topic : Global Cybersecurity Threats (2015–2024)</h1>
+    </div>
+    <div class="markdown">
+        <strong>Problem Statement:</strong><br>
+        Cybersecurity incidents have been increasing rapidly, causing huge financial losses and impacting millions of users worldwide. Analyzing patterns in cybersecurity attacks can help identify vulnerabilities and mitigate future threats.
+        <br><br>
+        <strong>Objectives:</strong>
+        <ol>
+            <li>To analyze cybersecurity threat data from 2015 to 2024.</li>
+            <li>To identify trends in attacks, affected industries, and financial losses.</li>
+            <li>To visualize relationships between users affected, losses, and attack types.</li>
+            <li>To compare different attack sources and resolution mechanisms.</li>
+        </ol>
+    </div>
+    <div class="markdown">
+        <strong>Scope of the Project:</strong><br>
+        This project focuses on exploring cybersecurity threats using data visualization and analysis techniques. Provides insights that can guide future security strategies.
+    </div>
+    <div class="markdown">
+        <strong>Programming Languages:</strong><br>
+        Python (for data analysis and visualization)<br>
+        <strong>Libraries/Frameworks:</strong><br>
+        Pandas → data loading, cleaning, preprocessing<br>
+        NumPy → numerical operations<br>
+        Matplotlib → visualizations (plots, charts)<br>
+        Seaborn → advanced statistical plots
+    </div>
+
+    <div class="codecell">
+        <strong>Code:</strong>
+        <pre>import os</pre>
+    </div>
+    <div class="codecell">
+        <strong>Code:</strong>
+        <pre>import pandas as pd
+import numpy as np</pre>
+    </div>
+    <div class="codecell">
+        <strong>Code:</strong>
+        <pre>os.getcwd()</pre>
+        <em>Output:</em>
+        <pre>'C:\\Users\\Sara'</pre>
+    </div>
+    <div class="codecell">
+        <strong>Code:</strong>
+        <pre>os.chdir("C:\\Users\\Sara\\Downloads\\cybersecurity project")</pre>
+    </div>
+    <div class="codecell">
+        <strong>Code:</strong>
+        <pre>print(os.listdir())</pre>
+        <em>Output:</em>
+        <pre>['Global_Cybersecurity_Threats_2015-2024 (1).csv', 'LossFromNetCrime.csv']</pre>
+    </div>
+    <div class="codecell">
+        <strong>Code:</strong>
+        <pre>df = pd.read_csv("Global_Cybersecurity_Threats_2015-2024 (1).csv")</pre>
+    </div>
+    <div class="codecell">
+        <strong>Code:</strong>
+        <pre>df</pre>
+        <em>Output:</em>
+        <pre>[DataFrame with 3000 rows × 10 columns]</pre>
+    </div>
+    <div class="codecell">
+        <strong>Code:</strong>
+        <pre>df.info()</pre>
+        <em>Output:</em>
+        <pre>
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 3000 entries, 0 to 2999
+Data columns (total 10 columns):
+ #   Column                               Non-Null Count  Dtype  
+---  ------                               --------------  -----  
+ 0   Country                              3000 non-null   object 
+ 1   Year                                 3000 non-null   int64  
+ 2   Attack Type                          3000 non-null   object 
+ 3   Target Industry                      3000 non-null   object 
+ 4   Financial Loss (in Million $)        3000 non-null   float64
+ 5   Number of Affected Users             3000 non-null   int64  
+ 6   Attack Source                        3000 non-null   object 
+ 7   Security Vulnerability Type          3000 non-null   object 
+ 8   Defense Mechanism Used               3000 non-null   object 
+ 9   Incident Resolution Time (in Hours)  3000 non-null   int64  
+dtypes: float64(1), int64(3), object(6)
+memory usage: 234.5+ KB
+        </pre>
+    </div>
+    <div class="codecell">
+        <strong>Code:</strong>
+        <pre>df.describe()</pre>
+        <em>Output:</em>
+        <pre>[Summary statistics for numerical columns]</pre>
+    </div>
+    <div class="codecell">
+        <strong>Code:</strong>
+        <pre>df.shape</pre>
+        <em>Output:</em>
+        <pre>(3000, 10)</pre>
+    </div>
+    <div class="codecell">
+        <strong>Code:</strong>
+        <pre>df.isnull</pre>
+        <em>Output:</em>
+        <pre>&lt;bound method DataFrame.isnull of ...&gt;</pre>
+    </div>
+    <div class="codecell">
+        <strong>Code:</strong>
+        <pre>(df.columns)</pre>
+        <em>Output:</em>
+        <pre>Index(['Country', 'Year', 'Attack Type', 'Target Industry',
+       'Financial Loss (in Million $)', 'Number of Affected Users',
+       'Attack Source', 'Security Vulnerability Type',
+       'Defense Mechanism Used', 'Incident Resolution Time (in Hours)'],
+      dtype='object')</pre>
+    </div>
+    <div class="codecell">
+        <strong>Code:</strong>
+        <pre>df.head()</pre>
+        <em>Output:</em>
+        <pre>[First 5 rows of the DataFrame]</pre>
+    </div>
+    <div class="codecell">
+        <strong>Code:</strong>
+        <pre>df.tail()</pre>
+        <em>Output:</em>
+        <pre>[Last 5 rows of the DataFrame]</pre>
+    </div>
+    <div class="codecell">
+        <strong>Code:</strong>
+        <pre>(df.isnull().sum())</pre>
+        <em>Output:</em>
+        <pre>
+Country                                0
+Year                                   0
+Attack Type                            0
+Target Industry                        0
+Financial Loss (in Million $)          0
+Number of Affected Users               0
+Attack Source                          0
+Security Vulnerability Type            0
+Defense Mechanism Used                 0
+Incident Resolution Time (in Hours)    0
+dtype: int64
+        </pre>
+    </div>
+    <!-- Add other code cells as needed -->
+</body>
+</html>
